@@ -33,3 +33,5 @@ eye activation of 004.jpg is 3.811, classified : Real
 eye activation of 005.jpg is 2.530, classified : Fake
 eye activation of 006.jpg is 4.105, classified : Real
 ```
+
+The report can be found in ./Pa.pdf.

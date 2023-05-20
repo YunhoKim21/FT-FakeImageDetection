@@ -32,16 +32,3 @@ def high_pass_filter(dft2d, radius=10):
 
     return dft2d
 
-
-if __name__ == '__main__':
-    array = []
-    n_samples = 500
-
-    for i in tqdm(range(n_samples)):
-        img_path = f'fake/src/{i}.jpg'
-        activation_path = f'fake/high_passed/{i}.jpg'
-        output_image, s = eye_activation(img_path, activation_path)
-        array.append(s)
-
-    print('Mean: ', np.mean(array))
-    print('Std: ', np.std(array))

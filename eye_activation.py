@@ -18,11 +18,9 @@ def eye_activation(image_path, activation_path, debug=False):
         bounding_box = person['box']
         keypoints = person['keypoints']
 
-        # Assume the eye is about 10% of the face width
         eye_width = int(bounding_box[2] * 0.4)
         eye_height = int(bounding_box[3] * 0.2)
 
-        # Calculate the coordinates of the eye regions
         left_eye_region = [int(keypoints['left_eye'][0]-eye_width//2), int(keypoints['left_eye'][1]-eye_height//2),
                         int(keypoints['left_eye'][0]+eye_width//2), int(keypoints['left_eye'][1]+eye_height//2)]
         right_eye_region = [int(keypoints['right_eye'][0]-eye_width//2), int(keypoints['right_eye'][1]-eye_height//2),
@@ -36,7 +34,6 @@ def eye_activation(image_path, activation_path, debug=False):
     
 
     area, s = 0, 0
-    # Copy the eye regions to the output image
     for eye_region in eye_regions:
         area += (eye_region[2] - eye_region[0]) * (eye_region[3] - eye_region[1])
         s += np.sum(activation[eye_region[1]:eye_region[3], eye_region[0]:eye_region[2]])
